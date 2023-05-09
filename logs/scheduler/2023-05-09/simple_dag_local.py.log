@@ -775,3 +775,38 @@
 [2023-05-09T02:37:42.985+0000] {logging_mixin.py:115} INFO - [2023-05-09T02:37:42.984+0000] {dag.py:2429} INFO - Sync 1 DAGs
 [2023-05-09T02:37:43.004+0000] {logging_mixin.py:115} INFO - [2023-05-09T02:37:43.004+0000] {dag.py:2981} INFO - Setting next_dagrun for thanhnb_dag01 to 2023-05-06T00:00:00+00:00, run_after=2023-05-07T00:00:00+00:00
 [2023-05-09T02:37:43.023+0000] {processor.py:161} INFO - Processing /opt/airflow/dags/simple_dag_local.py took 0.091 seconds
+[2023-05-09T02:38:13.312+0000] {processor.py:153} INFO - Started process (PID=3907) to work on /opt/airflow/dags/simple_dag_local.py
+[2023-05-09T02:38:13.313+0000] {processor.py:640} INFO - Processing file /opt/airflow/dags/simple_dag_local.py for tasks to queue
+[2023-05-09T02:38:13.314+0000] {logging_mixin.py:115} INFO - [2023-05-09T02:38:13.314+0000] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/simple_dag_local.py
+[2023-05-09T02:38:13.351+0000] {processor.py:650} INFO - DAG(s) dict_keys(['thanhnb_dag01']) retrieved from /opt/airflow/dags/simple_dag_local.py
+[2023-05-09T02:38:13.375+0000] {logging_mixin.py:115} INFO - [2023-05-09T02:38:13.375+0000] {dag.py:2429} INFO - Sync 1 DAGs
+[2023-05-09T02:38:13.397+0000] {logging_mixin.py:115} INFO - [2023-05-09T02:38:13.397+0000] {dag.py:2981} INFO - Setting next_dagrun for thanhnb_dag01 to 2023-05-06T00:00:00+00:00, run_after=2023-05-07T00:00:00+00:00
+[2023-05-09T02:38:13.421+0000] {processor.py:161} INFO - Processing /opt/airflow/dags/simple_dag_local.py took 0.113 seconds
+[2023-05-09T02:38:43.769+0000] {processor.py:153} INFO - Started process (PID=3917) to work on /opt/airflow/dags/simple_dag_local.py
+[2023-05-09T02:38:43.770+0000] {processor.py:640} INFO - Processing file /opt/airflow/dags/simple_dag_local.py for tasks to queue
+[2023-05-09T02:38:43.771+0000] {logging_mixin.py:115} INFO - [2023-05-09T02:38:43.771+0000] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/simple_dag_local.py
+[2023-05-09T02:38:43.794+0000] {processor.py:650} INFO - DAG(s) dict_keys(['thanhnb_dag01']) retrieved from /opt/airflow/dags/simple_dag_local.py
+[2023-05-09T02:38:43.819+0000] {logging_mixin.py:115} INFO - [2023-05-09T02:38:43.819+0000] {dag.py:2429} INFO - Sync 1 DAGs
+[2023-05-09T02:38:43.840+0000] {logging_mixin.py:115} INFO - [2023-05-09T02:38:43.839+0000] {dag.py:2981} INFO - Setting next_dagrun for thanhnb_dag01 to 2023-05-06T00:00:00+00:00, run_after=2023-05-07T00:00:00+00:00
+[2023-05-09T02:38:43.858+0000] {processor.py:161} INFO - Processing /opt/airflow/dags/simple_dag_local.py took 0.091 seconds
+[2023-05-09T02:39:14.141+0000] {processor.py:153} INFO - Started process (PID=3927) to work on /opt/airflow/dags/simple_dag_local.py
+[2023-05-09T02:39:14.142+0000] {processor.py:640} INFO - Processing file /opt/airflow/dags/simple_dag_local.py for tasks to queue
+[2023-05-09T02:39:14.143+0000] {logging_mixin.py:115} INFO - [2023-05-09T02:39:14.143+0000] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/simple_dag_local.py
+[2023-05-09T02:39:14.173+0000] {processor.py:650} INFO - DAG(s) dict_keys(['thanhnb_dag01']) retrieved from /opt/airflow/dags/simple_dag_local.py
+[2023-05-09T02:39:14.201+0000] {logging_mixin.py:115} INFO - [2023-05-09T02:39:14.201+0000] {dag.py:2429} INFO - Sync 1 DAGs
+[2023-05-09T02:39:14.223+0000] {logging_mixin.py:115} INFO - [2023-05-09T02:39:14.223+0000] {dag.py:2981} INFO - Setting next_dagrun for thanhnb_dag01 to 2023-05-06T00:00:00+00:00, run_after=2023-05-07T00:00:00+00:00
+[2023-05-09T02:39:14.241+0000] {processor.py:161} INFO - Processing /opt/airflow/dags/simple_dag_local.py took 0.105 seconds
+[2023-05-09T02:39:44.510+0000] {processor.py:153} INFO - Started process (PID=3938) to work on /opt/airflow/dags/simple_dag_local.py
+[2023-05-09T02:39:44.513+0000] {processor.py:640} INFO - Processing file /opt/airflow/dags/simple_dag_local.py for tasks to queue
+[2023-05-09T02:39:44.515+0000] {logging_mixin.py:115} INFO - [2023-05-09T02:39:44.514+0000] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/simple_dag_local.py
+[2023-05-09T02:39:44.568+0000] {processor.py:650} INFO - DAG(s) dict_keys(['thanhnb_dag01']) retrieved from /opt/airflow/dags/simple_dag_local.py
+[2023-05-09T02:39:44.598+0000] {logging_mixin.py:115} INFO - [2023-05-09T02:39:44.598+0000] {dag.py:2429} INFO - Sync 1 DAGs
+[2023-05-09T02:39:44.627+0000] {logging_mixin.py:115} INFO - [2023-05-09T02:39:44.627+0000] {dag.py:2981} INFO - Setting next_dagrun for thanhnb_dag01 to 2023-05-06T00:00:00+00:00, run_after=2023-05-07T00:00:00+00:00
+[2023-05-09T02:39:45.073+0000] {processor.py:161} INFO - Processing /opt/airflow/dags/simple_dag_local.py took 0.567 seconds
+[2023-05-09T02:40:15.384+0000] {processor.py:153} INFO - Started process (PID=3948) to work on /opt/airflow/dags/simple_dag_local.py
+[2023-05-09T02:40:15.386+0000] {processor.py:640} INFO - Processing file /opt/airflow/dags/simple_dag_local.py for tasks to queue
+[2023-05-09T02:40:15.389+0000] {logging_mixin.py:115} INFO - [2023-05-09T02:40:15.389+0000] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/simple_dag_local.py
+[2023-05-09T02:40:15.460+0000] {processor.py:650} INFO - DAG(s) dict_keys(['thanhnb_dag01']) retrieved from /opt/airflow/dags/simple_dag_local.py
+[2023-05-09T02:40:15.491+0000] {logging_mixin.py:115} INFO - [2023-05-09T02:40:15.491+0000] {dag.py:2429} INFO - Sync 1 DAGs
+[2023-05-09T02:40:15.515+0000] {logging_mixin.py:115} INFO - [2023-05-09T02:40:15.515+0000] {dag.py:2981} INFO - Setting next_dagrun for thanhnb_dag01 to 2023-05-06T00:00:00+00:00, run_after=2023-05-07T00:00:00+00:00
+[2023-05-09T02:40:15.542+0000] {processor.py:161} INFO - Processing /opt/airflow/dags/simple_dag_local.py took 0.161 seconds
