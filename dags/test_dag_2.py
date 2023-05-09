@@ -16,69 +16,53 @@ from selenium.webdriver.support.ui import WebDriverWait
 from airflow.operators.python import PythonOperator
 from airflow.operators.python import PythonOperator
 import numpy as np
-import ssl
+from datetime import date
+from sqlalchemy import create_engine
+# from clickhouse_driver import Client
 
 
 def crawl_ck():
-    driver = webdriver.Chrome(executable_path='chromedriver.exe')
+    driver = webdriver.Chrome()
     driver.get('http://s.cafef.vn/screener.aspx')
     table_id = driver.find_element(By.XPATH,'//*[@id="myTable"]/tbody')
 
 
     dfx=[]
     rows = table_id.find_elements(By.TAG_NAME, 'tr')
-    for row in rows[:101]:
+    for row in rows[:50]:
         # col = [row.find_elements(By.TAG_NAME, "td")[i].text for i in range(11)]
         col = [col.text for col in row.find_elements(By.TAG_NAME, "td")]
         df = pd.DataFrame([col],columns=['stt','ten_cong_ty','ma_co_phieu','san_chung_khoan','thay_doi_5_phien_truoc','von_hoa_thi_truong','klgd','eps','p/e','he_so_beta','gia'])
         dfx.append(df)
     df = pd.concat(dfx, ignore_index=True)
-    df = df.sort_values(by='gia',ascending = False)
-    # df.to_csv('ck.csv')
-
-    print(df.head(10))
+    # df = df.sort_values(by='gia',ascending = False)
+    df['date'] = [date.today()] * len(df.index)
+    df = df[['date','ten_cong_ty','ma_co_phieu','san_chung_khoan','thay_doi_5_phien_truoc','von_hoa_thi_truong','klgd','eps','p_e','he_so_beta','gia']]
+    
+    print(df.head(5))
     time.sleep(5)
     driver.close()
-    return True
+    return df
 
-def email():
-    import ssl
-
-    ssl._create_default_https_context = ssl._create_unverified_context
-    from sendgrid import SendGridAPIClient
-    from sendgrid.helpers.mail import (Mail, Attachment, FileContent, FileName, FileType, Disposition)
-    out_csv_file_path = 'drive/MyDriver/My_data/data_crawl/data_crawl.csv'
-    import base64
-    message = Mail(
-        from_email='thanhnb@ftech.ai',
-        to_emails='baothanh1371997@gmail.com',
-        subject='Your file is here!',
-        html_content='thanhnb_test_crawl'
-    )
-
-    with open(out_csv_file_path, 'rb') as f:
-        data = f.read()
-        f.close()
-    encoded_file = base64.b64encode(data).decode()
-
-    attachedFile = Attachment(
-        FileContent(encoded_file),
-        FileName('data_crawl.csv'),
-        FileType('text/csv'),
-        Disposition('attachment')
-    )
-    message.attachment = attachedFile
+clickhouse_info = {
+    "host": "localhost",
+    "user": "default",
+    "password": ""
+}
+# client = Client(host=clickhouse_info['host'], user=clickhouse_info['user'],
+#                 password=clickhouse_info['password'], settings={'use_numpy': True})
+# client.insert_dataframe('insert into test.data_ck values', crawl_ck())
 
 dag = DAG(
-    'mail_dag',
+    'crawl_dag',
     default_args= {
         'email' : ['thanhnb@ftech.ai'],
         'email_on_failure': True,
         'retries' : 1,
         'retry_delay' : timedelta(minutes=3),
     },
-    description='crawl_data_ck',
-    schedule_interval= timedelta(days=1),
+    description='time_crawl',
+    schedule_interval= "0 0 * * 1-5",
     start_date= datetime.today() - timedelta(days=1),
     tags=['thanhnb_crawl']
 )
@@ -87,10 +71,5 @@ crawl_data = PythonOperator(
     python_callable=crawl_ck,
     dag = dag
 )
-email_operator = PythonOperator(
-    task_id='email_operator',
-    python_callable=email,
-    dag=dag
-)
 
-crawl_data >> email_operator
+crawl_data

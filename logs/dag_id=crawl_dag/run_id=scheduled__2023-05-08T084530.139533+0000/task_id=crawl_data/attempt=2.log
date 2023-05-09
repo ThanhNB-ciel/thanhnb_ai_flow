@@ -1,0 +1,197 @@
+[2023-05-09T01:45:00.034+0000] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: crawl_dag.crawl_data scheduled__2023-05-08T08:45:30.139533+00:00 [queued]>
+[2023-05-09T01:45:00.051+0000] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: crawl_dag.crawl_data scheduled__2023-05-08T08:45:30.139533+00:00 [queued]>
+[2023-05-09T01:45:00.052+0000] {taskinstance.py:1368} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-09T01:45:00.053+0000] {taskinstance.py:1369} INFO - Starting attempt 2 of 2
+[2023-05-09T01:45:00.054+0000] {taskinstance.py:1370} INFO - 
+--------------------------------------------------------------------------------
+[2023-05-09T01:45:00.076+0000] {taskinstance.py:1389} INFO - Executing <Task(PythonOperator): crawl_data> on 2023-05-08 08:45:30.139533+00:00
+[2023-05-09T01:45:00.087+0000] {standard_task_runner.py:52} INFO - Started process 1399 to run task
+[2023-05-09T01:45:00.093+0000] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'crawl_dag', 'crawl_data', 'scheduled__2023-05-08T08:45:30.139533+00:00', '--job-id', '12', '--raw', '--subdir', 'DAGS_FOLDER/test_dag_2.py', '--cfg-path', '/tmp/tmpz7h733fu', '--error-file', '/tmp/tmp00ic2h3p']
+[2023-05-09T01:45:00.097+0000] {standard_task_runner.py:80} INFO - Job 12: Subtask crawl_data
+[2023-05-09T01:45:00.181+0000] {task_command.py:371} INFO - Running <TaskInstance: crawl_dag.crawl_data scheduled__2023-05-08T08:45:30.139533+00:00 [running]> on host 42e8216d44a8
+[2023-05-09T01:45:00.265+0000] {taskinstance.py:1583} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=thanhnb@ftech.ai
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=crawl_dag
+AIRFLOW_CTX_TASK_ID=crawl_data
+AIRFLOW_CTX_EXECUTION_DATE=2023-05-08T08:45:30.139533+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-05-08T08:45:30.139533+00:00
+[2023-05-09T01:45:00.902+0000] {taskinstance.py:1902} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/test_dag_2.py", line 25, in crawl_ck
+    driver = webdriver.Chrome()
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/chrome/webdriver.py", line 93, in __init__
+    keep_alive,
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/chromium/webdriver.py", line 112, in __init__
+    options=options,
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py", line 286, in __init__
+    self.start_session(capabilities, browser_profile)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py", line 378, in start_session
+    response = self.execute(Command.NEW_SESSION, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py", line 440, in execute
+    self.error_handler.check_response(response)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/remote/errorhandler.py", line 245, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: unknown error: Chrome failed to start: crashed.
+  (unknown error: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location /usr/bin/google-chrome is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+#0 0x557bf0906133 <unknown>
+#1 0x557bf063a966 <unknown>
+#2 0x557bf066421a <unknown>
+#3 0x557bf066007b <unknown>
+#4 0x557bf069f9ad <unknown>
+#5 0x557bf069f18f <unknown>
+#6 0x557bf06969a3 <unknown>
+#7 0x557bf066b46a <unknown>
+#8 0x557bf066c55e <unknown>
+#9 0x557bf08c5cae <unknown>
+#10 0x557bf08c98fe <unknown>
+#11 0x557bf08d2f20 <unknown>
+#12 0x557bf08ca923 <unknown>
+#13 0x557bf089dc0e <unknown>
+#14 0x557bf08edb08 <unknown>
+#15 0x557bf08edc97 <unknown>
+#16 0x557bf08fe113 <unknown>
+#17 0x7f60af28eea7 start_thread
+
+[2023-05-09T01:45:00.922+0000] {taskinstance.py:1412} INFO - Marking task as FAILED. dag_id=crawl_dag, task_id=crawl_data, execution_date=20230508T084530, start_date=20230509T014500, end_date=20230509T014500
+[2023-05-09T01:45:00.937+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/email.py:119: PendingDeprecationWarning: Fetching SMTP credentials from configuration variables will be deprecated in a future release. Please set credentials using a connection instead.
+  send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+
+[2023-05-09T01:45:00.938+0000] {configuration.py:562} WARNING - section/key [smtp/smtp_user] not found in config
+[2023-05-09T01:45:00.939+0000] {email.py:228} INFO - Email alerting: attempt 1
+[2023-05-09T01:45:00.946+0000] {configuration.py:562} WARNING - section/key [smtp/smtp_user] not found in config
+[2023-05-09T01:45:00.946+0000] {email.py:228} INFO - Email alerting: attempt 1
+[2023-05-09T01:45:00.947+0000] {taskinstance.py:1957} ERROR - Failed to send email to: ['thanhnb@ftech.ai']
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1463, in _run_raw_task
+    self._execute_task_with_callbacks(context, test_mode)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1610, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1671, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/test_dag_2.py", line 25, in crawl_ck
+    driver = webdriver.Chrome()
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/chrome/webdriver.py", line 93, in __init__
+    keep_alive,
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/chromium/webdriver.py", line 112, in __init__
+    options=options,
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py", line 286, in __init__
+    self.start_session(capabilities, browser_profile)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py", line 378, in start_session
+    response = self.execute(Command.NEW_SESSION, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py", line 440, in execute
+    self.error_handler.check_response(response)
+  File "/home/airflow/.local/lib/python3.7/site-packages/selenium/webdriver/remote/errorhandler.py", line 245, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: unknown error: Chrome failed to start: crashed.
+  (unknown error: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location /usr/bin/google-chrome is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+#0 0x557bf0906133 <unknown>
+#1 0x557bf063a966 <unknown>
+#2 0x557bf066421a <unknown>
+#3 0x557bf066007b <unknown>
+#4 0x557bf069f9ad <unknown>
+#5 0x557bf069f18f <unknown>
+#6 0x557bf06969a3 <unknown>
+#7 0x557bf066b46a <unknown>
+#8 0x557bf066c55e <unknown>
+#9 0x557bf08c5cae <unknown>
+#10 0x557bf08c98fe <unknown>
+#11 0x557bf08d2f20 <unknown>
+#12 0x557bf08ca923 <unknown>
+#13 0x557bf089dc0e <unknown>
+#14 0x557bf08edb08 <unknown>
+#15 0x557bf08edc97 <unknown>
+#16 0x557bf08fe113 <unknown>
+#17 0x7f60af28eea7 start_thread
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 2339, in email_alert
+    send_email(task.email, subject, html_content)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 71, in send_email
+    **kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 119, in send_email_smtp
+    send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 230, in send_mime_email
+    smtp_conn = _get_smtp_connection(smtp_host, smtp_port, smtp_timeout, smtp_ssl)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 264, in _get_smtp_connection
+    else smtplib.SMTP(host=host, port=port, timeout=timeout)
+  File "/usr/local/lib/python3.7/smtplib.py", line 251, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/local/lib/python3.7/smtplib.py", line 336, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/local/lib/python3.7/smtplib.py", line 307, in _get_socket
+    self.source_address)
+  File "/usr/local/lib/python3.7/socket.py", line 728, in create_connection
+    raise err
+  File "/usr/local/lib/python3.7/socket.py", line 716, in create_connection
+    sock.connect(sa)
+OSError: [Errno 99] Cannot assign requested address
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1955, in handle_failure
+    self.email_alert(error, task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 2341, in email_alert
+    send_email(task.email, subject, html_content_err)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 71, in send_email
+    **kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 119, in send_email_smtp
+    send_mime_email(e_from=mail_from, e_to=recipients, mime_msg=msg, conn_id=conn_id, dryrun=dryrun)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 230, in send_mime_email
+    smtp_conn = _get_smtp_connection(smtp_host, smtp_port, smtp_timeout, smtp_ssl)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/email.py", line 264, in _get_smtp_connection
+    else smtplib.SMTP(host=host, port=port, timeout=timeout)
+  File "/usr/local/lib/python3.7/smtplib.py", line 251, in __init__
+    (code, msg) = self.connect(host, port)
+  File "/usr/local/lib/python3.7/smtplib.py", line 336, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+  File "/usr/local/lib/python3.7/smtplib.py", line 307, in _get_socket
+    self.source_address)
+  File "/usr/local/lib/python3.7/socket.py", line 728, in create_connection
+    raise err
+  File "/usr/local/lib/python3.7/socket.py", line 716, in create_connection
+    sock.connect(sa)
+OSError: [Errno 99] Cannot assign requested address
+[2023-05-09T01:45:00.968+0000] {standard_task_runner.py:97} ERROR - Failed to execute job 12 for task crawl_data (Message: unknown error: Chrome failed to start: crashed.
+  (unknown error: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location /usr/bin/google-chrome is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+Stacktrace:
+#0 0x557bf0906133 <unknown>
+#1 0x557bf063a966 <unknown>
+#2 0x557bf066421a <unknown>
+#3 0x557bf066007b <unknown>
+#4 0x557bf069f9ad <unknown>
+#5 0x557bf069f18f <unknown>
+#6 0x557bf06969a3 <unknown>
+#7 0x557bf066b46a <unknown>
+#8 0x557bf066c55e <unknown>
+#9 0x557bf08c5cae <unknown>
+#10 0x557bf08c98fe <unknown>
+#11 0x557bf08d2f20 <unknown>
+#12 0x557bf08ca923 <unknown>
+#13 0x557bf089dc0e <unknown>
+#14 0x557bf08edb08 <unknown>
+#15 0x557bf08edc97 <unknown>
+#16 0x557bf08fe113 <unknown>
+#17 0x7f60af28eea7 start_thread
+; 1399)
+[2023-05-09T01:45:00.990+0000] {local_task_job.py:156} INFO - Task exited with return code 1
+[2023-05-09T01:45:01.019+0000] {local_task_job.py:279} INFO - 0 downstream tasks scheduled from follow-on schedule check
